@@ -49,12 +49,13 @@ export function IslandEnvironment({
         intensity={1.5}
         castShadow
         shadow-mapSize={[2048, 2048]}
-      >
-        <orthographicCamera
-          attach="shadow-camera"
-          args={[-20, 20, 20, -20, 0.1, 50]}
-        />
-      </directionalLight>
+        shadow-camera-near={0.1}
+        shadow-camera-far={50}
+        shadow-camera-left={-20}
+        shadow-camera-right={20}
+        shadow-camera-top={20}
+        shadow-camera-bottom={-20}
+      />
 
       {/* Fill light */}
       <directionalLight

@@ -34,7 +34,6 @@ const Guy = ({ isWalking = false, isMeditating = false }: GuyProps) => {
       ref={ref}
       position={[0, -1, 0]} // Adjust to match ground plane
       scale={[0.3, 0.3, 0.3]}
-      rotation={[0, -Math.PI / 2, 0]}
       castShadow
     >
       <primitive object={scene} />

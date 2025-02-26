@@ -35,12 +35,17 @@ export const Home = () => {
         <hemisphereLight skyColor="b1e1ff" groundColor="#000000" intensity={1} />
         <Environment preset="sunset" />
         <Suspense fallback={<Loader />}>
-          
+          <Island
+            isLandScale={isLandScale}
+            isLandPosition={isLandPosition}
+            isLandRotation={isLandRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
+          />
           <Sky 
           isRotating={isRotating}
           />
           <Bird />
-          <Floor />
           <Guy
             isRotating={isRotating}
           />

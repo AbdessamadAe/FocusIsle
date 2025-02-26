@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import { Home } from './pages/Home'
+import { MainScene } from './components/MainScene';
+import './App.css';
 
 function App() {
-
   return (
-    <div className='bg-slate-300/20'>
-      <Home />
+    <div className="App">
+      <MainScene />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

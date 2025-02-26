@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Circle Island
+* source:	https://sketchfab.com/3d-models/low-poly-circle-island-7841d19f315f4de986971fa8403f7081
+* author:	Enkairin (https://sketchfab.com/Enkairin)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Circle Island" (https://sketchfab.com/3d-models/low-poly-circle-island-7841d19f315f4de986971fa8403f7081) by Enkairin (https://sketchfab.com/Enkairin) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

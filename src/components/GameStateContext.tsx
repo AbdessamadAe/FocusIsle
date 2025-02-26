@@ -1,29 +1,30 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useFocusSession } from './FocusSessionContext';
 
-export type GameMode = 'focus' | 'break';
+type GameMode = 'focus' | 'break';
 
 interface GameState {
   mode: GameMode;
-  isLoading: boolean;
   setMode: (mode: GameMode) => void;
-  setIsLoading: (loading: boolean) => void;
 }
 
 const GameStateContext = createContext<GameState | undefined>(undefined);
 
-export function GameStateProvider({ children }: { children: ReactNode }) {
+export function GameStateProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<GameMode>('focus');
-  const [isLoading, setIsLoading] = useState(true);
+  const { currentSession } = useFocusSession();
+
+  // Automatically switch mode based on session status
+  useEffect(() => {
+    if (currentSession?.status === 'break') {
+      setMode('break');
+    } else if (currentSession?.status === 'focus') {
+      setMode('focus');
+    }
+  }, [currentSession?.status]);
 
   return (
-    <GameStateContext.Provider
-      value={{
-        mode,
-        isLoading,
-        setMode,
-        setIsLoading,
-      }}
-    >
+    <GameStateContext.Provider value={{ mode, setMode }}>
       {children}
     </GameStateContext.Provider>
   );

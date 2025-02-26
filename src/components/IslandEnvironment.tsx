@@ -1,8 +1,6 @@
 import { useRef } from 'react';
 import { Mesh } from 'three';
 import { useGameState } from './GameStateContext';
-import Island from '../models/island';
-import Sky from '../models/Sky';
 
 interface IslandEnvironmentProps {
   position?: [number, number, number];
@@ -13,30 +11,22 @@ export function IslandEnvironment({
   position = [0, 0, 0],
   scale = 1
 }: IslandEnvironmentProps) {
-  const islandRef = useRef<Mesh>(null);
+  const floorRef = useRef<Mesh>(null);
   const { mode } = useGameState();
 
   return (
     <group position={position} scale={[scale, scale, scale]}>
-      {/* Island model */}
-      <Island scale={0.5} position={[0, -1, 0]} />
-      
-      {/* Sky */}
-      <Sky scale={50} />
-
-      {/* Ground plane */}
+      {/* Simple floor */}
       <mesh
-        position={[0, -1.1, 0]}
+        position={[0, -0.1, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
-        scale={[100, 100, 1]}
+        scale={[50, 50, 1]}
         receiveShadow
       >
         <planeGeometry />
         <meshStandardMaterial
-          color="#0a5"
-          opacity={0.3}
-          transparent
-          roughness={1}
+          color="#91B496"
+          roughness={0.8}
         />
       </mesh>
 
@@ -60,12 +50,12 @@ export function IslandEnvironment({
       {/* Fill light */}
       <directionalLight
         position={[-5, 5, -5]}
-        intensity={0.5}
+        intensity={0.3}
         color={mode === 'focus' ? '#b8c4ff' : '#ffd700'}
       />
 
       {/* Environment elements */}
-      <fog attach="fog" args={['#b8c4ff', 15, 25]} />
+      <fog attach="fog" args={['#E6F3E9', 30, 60]} />
     </group>
   );
 } 
